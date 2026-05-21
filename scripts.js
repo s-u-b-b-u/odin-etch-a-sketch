@@ -7,7 +7,7 @@ const btn = document.querySelector('button');
 let gridSize;
 
 function removeGridRows () {
-
+    
     const rows = document.querySelectorAll('.row');
     
     rows.forEach((row) => {
@@ -15,13 +15,7 @@ function removeGridRows () {
     })
 }
 
-btn.addEventListener('click', ()=> {
-
-    if (gridSize != undefined) {
-        removeGridRows();
-    }
-
-    gridSize = prompt ("Enter size;");
+function addGrid (gridSize) {
     for (let i = 0; i < gridSize; i++) {
         const row1 = document.createElement('div');
         row1.classList.add('row');
@@ -33,8 +27,17 @@ btn.addEventListener('click', ()=> {
         }
         
         gridContainer.appendChild(row1);
-    
     }
+}
+btn.addEventListener('click', ()=> {
+
+    if (gridSize != undefined) {
+        removeGridRows();
+    }
+
+    gridSize = prompt ("Enter size;");
+
+    addGrid(gridSize);
         
 })
 
