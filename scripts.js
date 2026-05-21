@@ -57,7 +57,7 @@ function addHoveringEffect (columns) {
 btn.addEventListener('click', ()=> {
 
     if (gridSize != undefined) {
-        removeGridRows();
+        removeGrid();
     }
 
     gridSize = prompt ("Enter size;");
