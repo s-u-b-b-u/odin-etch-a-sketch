@@ -32,8 +32,12 @@ function addGrid (gridSize) {
 
 function addHoveringEffect (columns) {
     columns.forEach((column) => {
+        let opacity = 0;
         column.addEventListener("mouseenter", (event) => {
             column.classList.add('hover-effect');
+            column.setAttribute("style", `
+               opacity:${opacity} `);
+            opacity += 0.1;
         })
     })
 
