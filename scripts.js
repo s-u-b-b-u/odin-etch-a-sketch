@@ -30,18 +30,30 @@ function addGrid (gridSize) {
     }
 }
 
+function generateRandomColor () {
+    let code = "#";
+    const hexArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+    
+    for (let i = 0; i < 6; i++) {
+        code += hexArray[Math.floor(Math.random() * 16)];
+    }
+
+    return code;
+}
+
 function addHoveringEffect (columns) {
     columns.forEach((column) => {
-        let opacity = 0;
+        let opacity = 0.1;
+        let color = generateRandomColor();
         column.addEventListener("mouseenter", (event) => {
-            column.classList.add('hover-effect');
             column.setAttribute("style", `
-               opacity:${opacity} `);
-            opacity += 0.1;
+               opacity:${opacity}; background-color: ${color} `);
+            opacity = opacity == 1.0 ? opacity :opacity + 0.1;
         })
     })
 
 }
+
 btn.addEventListener('click', ()=> {
 
     if (gridSize != undefined) {
