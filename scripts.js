@@ -6,9 +6,20 @@ const btn = document.querySelector('button');
 
 let gridSize;
 
+function removeGridRows () {
+
+    const rows = document.querySelectorAll('.row');
+    
+    rows.forEach((row) => {
+        row.remove();
+    })
+}
+
 btn.addEventListener('click', ()=> {
 
-    
+    if (gridSize != undefined) {
+        removeGridRows();
+    }
 
     gridSize = prompt ("Enter size;");
     for (let i = 0; i < gridSize; i++) {
@@ -26,7 +37,7 @@ btn.addEventListener('click', ()=> {
     }
         
 })
-console.log(gridSize)
+
 
 
 
