@@ -1,12 +1,12 @@
 const gridContainer = document.querySelector('.container');
 const btn = document.querySelector('button');
-
+const DEFAULT_GRID_SIZE = 16;
 
 // step 1 to create n by n grid 
 
 let gridSize;
 
-function removeGridRows () {
+function removeGrid () {
     
     const rows = document.querySelectorAll('.row');
     
@@ -38,20 +38,19 @@ function addHoveringEffect (columns) {
     })
 
 }
-btn.addEventListener('click', ()=> {
-
-    if (gridSize != undefined) {
-        removeGridRows();
-    }
+btn.addEventListener('click', ()=> { 
 
     gridSize = prompt ("Enter size;");
 
-    addGrid(gridSize);
-    
+    if (gridSize > 0 && gridSize <= 100){
+        removeGrid();
+        addGrid(gridSize);
+    }else {
+        alert('Enter number between 0 to 100 only')
+    }
+
     // step 2: Add hoveing effect
-
     const columns = document.querySelectorAll('.column');
-
 
     addHoveringEffect(columns);
         
