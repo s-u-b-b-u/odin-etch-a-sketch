@@ -23,7 +23,3 @@ body {
 .column {
     flex: 1;
 }
-
-.hover-effect {
-    background-color: black;
-}
