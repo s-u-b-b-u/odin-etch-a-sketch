@@ -29,6 +29,15 @@ function addGrid (gridSize) {
         gridContainer.appendChild(row1);
     }
 }
+
+function addHoveringEffect (columns) {
+    columns.forEach((column) => {
+        column.addEventListener("mouseenter", (event) => {
+            column.classList.add('hover-effect');
+        })
+    })
+
+}
 btn.addEventListener('click', ()=> {
 
     if (gridSize != undefined) {
@@ -38,6 +47,13 @@ btn.addEventListener('click', ()=> {
     gridSize = prompt ("Enter size;");
 
     addGrid(gridSize);
+    
+    // step 2: Add hoveing effect
+
+    const columns = document.querySelectorAll('.column');
+
+
+    addHoveringEffect(columns);
         
 })
 
